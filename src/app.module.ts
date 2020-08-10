@@ -6,6 +6,8 @@ import { PostHelloService } from './post-hello/post-hello.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MessagesModule } from './messages/messages.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { GetrandomController } from './getrandom/getrandom.controller';
+import {GetRandomService} from './getrandom/getrandom.service'
 
 @Module({
   imports: [ 
@@ -18,7 +20,7 @@ import { MongooseModule } from '@nestjs/mongoose';
   MongooseModule.forRoot('mongodb+srv://root:root@cluster0-hg20y.mongodb.net/test?retryWrites=true&w=majority')
 ],
   
-  controllers: [AppController, PostHelloController],
-  providers: [AppService, PostHelloService],
+  controllers: [AppController, PostHelloController, GetrandomController],
+  providers: [AppService, PostHelloService,GetRandomService],
 })
 export class AppModule {}

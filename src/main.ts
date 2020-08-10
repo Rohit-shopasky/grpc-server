@@ -10,18 +10,21 @@ const microserviceOption={
     transport:Transport.GRPC,
     options:{
     package:'app',
-    url:"localhost:5000",
+    // host:"localhost",
+    // port:"5000",
+    url:"0.0.0.0:5000",
     protoPath: join(__dirname,'../src/app.proto')
     }
   }
 
-
+ 
 
 
 async function bootstrap() {
    const app = await NestFactory.createMicroservice(AppModule,microserviceOption);
+      
    await app.listen(()=>{
-     logger.log('Microservice is listening...');
+    logger.log('Microservice is listening...');
    });
 }
 bootstrap();
